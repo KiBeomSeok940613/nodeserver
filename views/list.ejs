@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <%- include('nav.ejs') %>
+    <!-- = 을 입력하면 html이 그대로 출력 - 을 입력하면 렌더링 값만 입력 스크립트 는 아무것도 안넣어.  -->
+
+
+
+    <% for(let i = 0;  i < data.length; i++){ %>
+<!-- = 이 들어가면 코드가 보이고 = 이 빠지면 스크립트 문법 스크립트 문법에선 = 이 빠진다 html 코드를 그대로 보여줄거면 = 이 들어감 스크립트 코드 에선 = 이 빠진다.
+    data.length 를 사용 하면 모든 데이터가 출력된다.
+-->
+    <ul class="flex justify-between items-center border">
+        
+        <li class="basis-2/4"><a href="/view/<%= data[i]._id %>"><%= data[i].title %></a></li>
+        <li class="basis-2/4"><%- data[i].content %></li>  
+    </ul>
+    <% } %>
+    <!-- 서버사이드렌더링? 완성된 데이터를 렌더링 하는거다. -->
+    
+</body>
+</html>
